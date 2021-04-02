@@ -14,10 +14,7 @@ public class CharacterSelection : MonoBehaviour
     {
         SelectChar(0);
     }
-    private void Start()
-    {
-    }
-
+   
     private void SelectChar(int index)
     {
         prevButton.interactable = (index != 0);
