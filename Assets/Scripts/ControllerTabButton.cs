@@ -16,8 +16,6 @@ public class ControllerTabButton : MonoBehaviour
     private void Awake()
     {
         buttonTab = GetComponent<Button>();
-        rectTransform = GetComponent<RectTransform>();
-
         buttonTab.onClick.AddListener(OnClick);
         ServiceLobby.current.OnSelectionChanged += onSelectionChanged;
     }
