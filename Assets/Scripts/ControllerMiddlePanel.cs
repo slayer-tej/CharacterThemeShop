@@ -9,7 +9,9 @@ public class ControllerMiddlePanel : MonoBehaviour
     [SerializeField] private Button nextButton;
     [SerializeField] private Button select;
     [SerializeField] private Text charStatus;
+    [SerializeField] private Transform tab2Content;
     [SerializeField] private ControllerCharacterLock[] allChars;
+    [SerializeField] private ControllerCharacterLock[] Tab2Chars;
 
     private string charName;
     private int currentCharacter;
@@ -63,6 +65,17 @@ public class ControllerMiddlePanel : MonoBehaviour
         for (int i = 0; i < allChars.Length; i++)
         {
             allChars[i].gameObject.SetActive(i == index);
+        }
+    }
+
+    public void Tab2Content()
+    {
+        for (int i = 0; i < Tab2Chars.Length; i++)
+        {
+            if (allChars[i].unlocked)
+            {
+                Tab2Chars[i].lockObject.SetActive(false);
+            }
         }
     }
 

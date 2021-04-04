@@ -1,6 +1,4 @@
-﻿
-using UnityEngine;
-using UnityEngine.UI;
+﻿using UnityEngine;
 
 public class ControllerBottomPanel : MonoBehaviour
 {
@@ -19,16 +17,12 @@ public class ControllerBottomPanel : MonoBehaviour
 
     private void onTabSelectionChanged(Tab tab)
     {
-        if(tab == Tab.Character)
-        {
-            characterContent.SetActive(true);
-            bubbleBirdContent.SetActive(false);
+        SwitchTabs(tab == Tab.Character);
+    }
 
-        }
-        else if (tab == Tab.BubbleBird)
-        {
-            characterContent.SetActive(false);
-            bubbleBirdContent.SetActive(true);
-        }
+    private void SwitchTabs(bool status)
+    {
+        characterContent.SetActive(status);
+        bubbleBirdContent.SetActive(!status);
     }
 }

@@ -20,6 +20,7 @@ public class ServiceLobby : MonoBehaviour
     [SerializeField] private Button themeStoreButton;
     [SerializeField] private Button themeStoreCloseButton;
     [SerializeField] private GameObject themeStore;
+    [SerializeField] private ControllerMiddlePanel controllerMiddlePanel;
 
 
     private Tab selectedTab = Tab.Character;
@@ -56,6 +57,10 @@ public class ServiceLobby : MonoBehaviour
             selectedTab = tab;
             Tabname.text = tab.ToString();
             OnSelectionChanged?.Invoke(selectedTab);
+            if(tab == Tab.BubbleBird)
+            {
+                controllerMiddlePanel.Tab2Content();
+            }
         }
     }
 
