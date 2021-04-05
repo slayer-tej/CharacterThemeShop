@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -41,12 +42,24 @@ public class ServiceLobby : MonoBehaviour
     private void OnClick()
     {
         isThemeStoreActive = isThemeStoreActive ? false : true;
+        Tabname.text = selectedTab.ToString();
+
         if (isThemeStoreActive)
         {
             level = int.Parse(inputField.text);
+            themeStore.SetActive(isThemeStoreActive);
         }
-        themeStore.SetActive(isThemeStoreActive);
-        Tabname.text = selectedTab.ToString();
+        else
+        {
+            StartCoroutine(DisableSelection());
+        }
+    }
+    private IEnumerator DisableSelection()
+    {
+        LeanTween.move(themeStore, new Vector3(200, -850, 0), 0.7f).setEase(LeanTweenType.easeInOutCubic);
+        yield return new WaitForSeconds(0.5f);
+        themeStore.SetActive(false);
+
     }
 
     public void ChangeTab(Tab tab)
